@@ -1,0 +1,33 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/open-iconic@1.1.1/font/css/open-iconic-bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/sweetalert2@7.26.12/dist/sweetalert2.min.css");
+
+// Variables
+//@import "variables";
+
+// Bootstrap
+//@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+.host .card{
+  height: 180px;
+}
+.host .card-top{
+  margin-top: 120px;
+}
+.card-img-top{
+  height: 178px;
+}
+.card .card-img .badge{
+  top:60%;
+  right:7px;
+}
+body.reg{
+  min-height: 650px;
+  position: relative;
+  height:100vh;
+  background:url("/images/bg2.jpg") center no-repeat fixed;
+  background-size: cover;
+}
+
+.tage table td{
+  font-size:18px;
+}
