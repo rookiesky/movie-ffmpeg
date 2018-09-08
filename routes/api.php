@@ -32,5 +32,11 @@ Route::group(['namespace'=>'Api'],function (){
     // get links list
     Route::get('/links','LinksApi@index');
 
+    Route::get('/tags','TagsApi@tags');
+
+    Route::get('/video/list','VideoApi@sortList');
+
+    Route::get('/video/{id}','VideoApi@find');
+
 });
 

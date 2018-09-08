@@ -17,10 +17,10 @@
         </div>
         <div class="col-lg-12 text-center mt-3">
             <img src="https://www.gamerating.org.tw/images/class_18.gif" data-src="https://www.gamerating.org.tw/images/class_18.gif" alt="" width="40">
-            <img src="./images/rta.gif" data-src="./images/rta.gif" alt="" width="80">
-            <img src="./images/asacp.png" data-src="./images/asacp.png" alt="">
-            <img src="./images/pornhub_regole_privacy.jpg" data-src="./images/pornhub_regole_privacy.jpg" alt="" width="110">
-            <img src="./images/javhd.png" data-src="./images/javhd.png" alt="" width="90">
+            <img src="/images/rta.gif" data-src="/images/rta.gif" alt="" width="80">
+            <img src="/images/asacp.png" data-src="/images/asacp.png" alt="">
+            <img src="/images/pornhub_regole_privacy.jpg" data-src=./images/pornhub_regole_privacy.jpg" alt="" width="110">
+            <img src="/images/javhd.png" data-src="/images/javhd.png" alt="" width="90">
         </div>
         <div class="col-lg-12 text-center mt-3 pb-4">
             Copyright © 2018 - {{ cache('system_base')->url }},All Rights Reserved

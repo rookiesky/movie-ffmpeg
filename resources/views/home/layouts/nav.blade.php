@@ -16,12 +16,21 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">檢索</button>
         </form>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            @guest
+            <li class="nav-item">
                 <a class="nav-link" href="/login">登陸</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/sign-up">註冊</a>
             </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="/member">會員中心</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">登出</a>
+                </li>
+            @endguest
         </ul>
     </div>
 </nav>

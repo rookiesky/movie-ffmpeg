@@ -8,6 +8,15 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">伺服器添加</h3>
                 </div>
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                 @endif
                 <!-- /.box-header -->
                 <!-- form start -->
                 <form role="form" action="/setAdmin/system/server/create" method="post">
@@ -37,6 +46,23 @@
                                 <input type="hidden" name="id" value="{{ $server->id }}">
                             @endif
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputHost">Host</label>
+                            <input type="text" class="form-control" name="host" id="exampleInputHost" placeholder="Enter host" @if(isset($server->host))value="{{ $server->host }}"@endif>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPort">port</label>
+                            <input type="text" class="form-control" name="port" @if(isset($server->port))value="{{ $server->port }}" @else value="22" @endif id="exampleInputPort" placeholder="Enter port">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername">username</label>
+                            <input type="text" class="form-control" name="username" id="exampleInputUsername" placeholder="Enter username" @if(isset($server->username))value="{{ $server->username }}" @endif>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword">password</label>
+                            <input type="text" class="form-control" name="password" id="exampleInputPassword" placeholder="Enter password" @if(isset($server->password))value="{{ $server->password }}" @endif>
+                        </div>
+
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-sm-offset-0 col-sm-10">

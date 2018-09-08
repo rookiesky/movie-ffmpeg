@@ -2,12 +2,10 @@
 <body class="reg">
 @include('home.layouts.nav')
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+    <div class="container-fluid">
+        <div class="row pt-5">
+            <div class="card col-md-8 col-md-offset-2 m-auto pt-4 pb-4 pl-4 pr-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Reset Password</div>
-
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
                             {{ csrf_field() }}

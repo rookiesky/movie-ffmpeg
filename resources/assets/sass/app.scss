@@ -1,12 +1,21 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css");
 @import url("https://cdn.jsdelivr.net/npm/open-iconic@1.1.1/font/css/open-iconic-bootstrap.min.css");
 @import url("https://cdn.jsdelivr.net/npm/sweetalert2@7.26.12/dist/sweetalert2.min.css");
+@import url("https://cdn.jsdelivr.net/npm/video.js@7.1.0/dist/video-js.min.css");
 
 // Variables
 //@import "variables";
 
 // Bootstrap
 //@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+a{
+  text-decoration:none;
+  out-line: none;
+  color:#000;
+}
+a:hover{
+  text-decoration:none;
+}
 .host .card{
   height: 180px;
 }
@@ -20,6 +29,9 @@
   top:60%;
   right:7px;
 }
+.card .card-img .badge.video-pixel{
+  top:7px !important;
+}
 body.reg{
   min-height: 650px;
   position: relative;
@@ -27,7 +39,19 @@ body.reg{
   background:url("/images/bg2.jpg") center no-repeat fixed;
   background-size: cover;
 }
-
 .tage table td{
   font-size:18px;
+}
+.user-info tbody tr th{
+  width: 15%;
+  text-align: right;
+}
+.message ul li{
+  cursor:pointer;
+}
+.video-js{
+  width: 100%;
+}
+.tool-share span{
+  cursor:pointer;
 }

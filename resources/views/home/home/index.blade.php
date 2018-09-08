@@ -93,15 +93,6 @@ window.onload = function () {
         return _html;
     }
 
-    function video_list_body(data)
-    {
-        let _html = '';
-        $.each(data,function (index,val) {
-            _html += '<div class="row mt-2"><div class="col-lg-3 mb-3"><div class="card"><a href="#"><img class="card-img-top" src="' + val.thumb + '" alt="' + val.title + '"></a><div class="card-body p-2"><a href="/v/'+ val.link_id +'"><h6 class="card-title mb-0 text-dark text-truncate">' + val.title + '</h6></a></div><div class="card-footer"><small class="text-muted"><span class="float-left"><span class="oi oi-clock mr-1"></span>' + val.create_time + '</span><span class="float-right"><span class="oi oi-eye mr-1"></span>' + val.click + '</span></small></div></div></div></div>';
-        });
-        return _html;
-    }
-
     function banner_nav(data) {
         let _html = '';
         for (i = 0; i < data.length; i++){

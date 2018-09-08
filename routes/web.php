@@ -12,10 +12,20 @@
 */
 
 Route::get('/','HomeController@index');
+
 Route::get('/sign-up','AuthController@signup')->name('sign-up');
 Route::get('/login','AuthController@login')->name('login');
 Route::get('/forget','AuthController@forget');
-Route::get('/password/reset/{token}','Auth/ResetPasswordController@showResetForm');
+$this->get('logout', 'Auth\LoginController@logout')->name('logout');
+$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+Route::get('/sort/{id}','SortController@index')->where('id','[0-9]+');
+
+Route::get('/v/{id}','VideoController@index')->where('id','[0-9]+');
+
 
 Route::group(['middleware'=>'auth'],function (){
 
@@ -76,6 +86,15 @@ Route::group(['prefix'=>'setAdmin','namespace'=>'Admin'],function(){
         //links view
         Route::get('/links','LinksController@index');
 
+        //create and update transcodeing view
+        Route::get('/transcodeing','TranscodeingController@index');
+        //create and update transcodeing server
+        Route::post('/transcodeing','TranscodeingController@store');
+
+        Route::get('/transcodeing/list','TranscodeingController@trancodeing');
+
+        Route::get('/transcodeing/list/run','TranscodeingController@codeRun');
+
     });
 
 });
@@ -106,4 +125,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'api/setAdmin','middleware'=>['auth
     Route::get('/link/{id}','LinksController@find');
     //destroy link
     Route::delete('/link/{id}','LinksController@destroy');
+
+
 });
+
+

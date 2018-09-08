@@ -177,7 +177,7 @@ class VideosController extends Controller
             if($resultTag){
                 \DB::table('video_to_tag')->insert($resultTag->toArray());
             }
-            if($data['thumbnail']){
+            if(isset($data['thumbnail']) && $data['thumbnail'] != ''){
                 Storage::disk('ftp')->delete($video->thumbnail);
             }
             return redirect('/setAdmin/video/0');

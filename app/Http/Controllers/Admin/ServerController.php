@@ -63,10 +63,14 @@ class ServerController extends Controller
     {
         $this->validate($request,[
             'name' => 'required',
-            'site' => 'required'
+            'site' => 'required',
+            'host' => 'required',
+            'port' => 'required',
+            'username' => 'required',
+            'password' => 'required'
         ]);
 
-        $data = $request->only(['name','site']);
+        $data = $request->only(['name','site','host','port','username','password']);
         $data['is_active'] = $request->has('is_active') ?? 0;
 
         if($request->has('id')){

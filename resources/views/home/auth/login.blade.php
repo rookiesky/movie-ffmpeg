@@ -20,7 +20,7 @@
             </div>
             <div class="card-footer bg-white text-muted">
                 <span>沒有賬號，<a href="/sign-up">請前往註冊</a></span>
-                <span class="float-right"><a href="">忘記密碼？</a></span>
+                <span class="float-right"><a href="/forget">忘記密碼？</a></span>
             </div>
         </div>
     </div>
