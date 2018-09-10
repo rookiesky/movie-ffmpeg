@@ -23,7 +23,7 @@
             <img src="/images/javhd.png" data-src="/images/javhd.png" alt="" width="90">
         </div>
         <div class="col-lg-12 text-center mt-3 pb-4">
-            Copyright © 2018 - {{ cache('system_base')->url }},All Rights Reserved
+            Copyright © 2018 - @if(isset(cache('system_base')->url)){{ cache('system_base')->url }}@endif,All Rights Reserved
         </div>
     </div>
 </div>

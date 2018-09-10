@@ -197,11 +197,18 @@ class VideosController extends Controller
             'link' => 'required'
         ]);
 
-        $fileName = $this->upload($request);
 
         $data = $request->only(['name','pixel','sort','region','is_vip','point','is_banner','link']);
         $data['time_limit'] = $request->get('time_limit') ?? '';
         $data['view'] = rand(1000,10000);
+
+        $video = Video::where('link',$data['link'])->find();
+
+        if($video){
+            return redirect()->back()->withErrors('視頻地址已存在，請確認！');
+        }
+        
+        $fileName = $this->upload($request);
 
         if($fileName == false){
             return redirect()->back()->withErrors('封面上傳失敗！');
