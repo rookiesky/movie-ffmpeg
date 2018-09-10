@@ -202,12 +202,12 @@ class VideosController extends Controller
         $data['time_limit'] = $request->get('time_limit') ?? '';
         $data['view'] = rand(1000,10000);
 
-        $video = Video::where('link',$data['link'])->find();
+        $video = Video::where('link',$data['link'])->first();
 
         if($video){
             return redirect()->back()->withErrors('視頻地址已存在，請確認！');
         }
-        
+
         $fileName = $this->upload($request);
 
         if($fileName == false){

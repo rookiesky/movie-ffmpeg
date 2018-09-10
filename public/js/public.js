@@ -66,9 +66,9 @@
     }
     function video_list_body(data)
     {
-        let _html = '';
+        let _html = '<div class="row mt-2">';
         $.each(data,function (index,val) {
-            _html += '<div class="row mt-2"><div class="col-lg-3 mb-3"><div class="card"><a href="/v/'+val.link_id+'" class="card-img"><span class="badge badge-info position-absolute video-pixel">'+val.pixel+'</span><img class="card-img-top" src="' + val.thumb + '" alt="' + val.title + '"><span class="badge badge-secondary position-absolute">'+val.length+'</span></a><div class="card-body p-2"><a href="/v/'+ val.link_id +'"><h6 class="card-title mb-0 text-dark text-truncate">' + val.title + '</h6></a></div><div class="card-footer"><small class="text-muted"><span class="float-left"><span class="oi oi-clock mr-1"></span>' + val.create_time + '</span><span class="float-right"><span class="oi oi-eye mr-1"></span>' + val.click + '</span></small></div></div></div></div>';
+            _html += '<div class="col-lg-3 mb-3"><div class="card"><a href="/v/'+val.link_id+'" class="card-img"><span class="badge badge-info position-absolute video-pixel">'+val.pixel+'</span><img class="card-img-top" src="' + val.thumb + '" alt="' + val.title + '"><span class="badge badge-secondary position-absolute">'+val.length+'</span></a><div class="card-body p-2"><a href="/v/'+ val.link_id +'"><h6 class="card-title mb-0 text-dark text-truncate">' + val.title + '</h6></a></div><div class="card-footer"><small class="text-muted"><span class="float-left"><span class="oi oi-clock mr-1"></span>' + val.create_time + '</span><span class="float-right"><span class="oi oi-eye mr-1"></span>' + val.click + '</span></small></div></div></div>';
         });
-        return _html;
+        return _html + '</div>';
     }

@@ -6,7 +6,7 @@
             <div class="col-lg-8">
                 <ul class="list-group">
                     <li class="list-group-item rounded-0">
-                        <h5 class="text-truncate">---</h5>
+                        <h5 class="text-truncate title">---</h5>
                     </li>
                     <li class="list-group-item rounded-0 p-0">
                         <video id="my-video" class="video-js vjs-big-play-centered"><track kind="captions" src="/test/captions.vtt" srclang="en" label="English" default></video>
@@ -58,9 +58,9 @@
                     <div class="col-lg-9 pt-4 pb-3 text-secondary border border-primary">
                         <h5>本片计次收看20点</h5>
                     </div>
-                    <a class="col-lg-2 bg-primary pt-3 pb-3 text-white text-center border border-primary" href="#">
+                    <button class="col-lg-2 bg-primary pt-3 pb-3 text-white text-center border border-primary" href="#">
                         BUY
-                    </a>
+                    </button>
                     <div class="col-lg-1"></div>
                 </div>
                 <div class="row mb-2">
@@ -68,9 +68,9 @@
                         <h5>全站包日79点</h5>
                         <p class="text-primary">全站无限收看24小时</p>
                     </div>
-                    <a class="col-lg-2 bg-primary pt-4 pb-3 text-white text-center border border-primary" href="#">
+                    <button class="col-lg-2 bg-primary pt-4 pb-3 text-white text-center border border-primary" href="#">
                         BUY
-                    </a>
+                    </button>
                     <div class="col-lg-1"></div>
                 </div>
                 <div class="row mb-2">
@@ -78,9 +78,9 @@
                         <h5>全站包周199点</h5>
                         <p class="text-primary">全站无限收看7天</p>
                     </div>
-                    <a class="col-lg-2 bg-primary pt-4 pb-3 text-white text-center border border-primary" href="#">
+                    <button class="col-lg-2 bg-primary pt-4 pb-3 text-white text-center border border-primary" href="#">
                         BUY
-                    </a>
+                    </button>
                     <div class="col-lg-1"></div>
                 </div>
                 <div class="row">
@@ -88,9 +88,9 @@
                         <h5>全站包月399点</h5>
                         <p class="text-primary">全站无限收看30天</p>
                     </div>
-                    <a class="col-lg-2 bg-primary pt-4 pb-2 text-white text-center border border-primary" href="#">
+                    <button class="col-lg-2 bg-primary pt-4 pb-2 text-white text-center border border-primary" href="#">
                         BUY
-                    </a>
+                    </button>
                     <div class="col-lg-1"></div>
                 </div>
             </div>
@@ -103,167 +103,6 @@
             </ul>
         </nav>
         <div class="row mt-3">
-            <div class="col-lg-3 mb-3">
-                <div class="card">
-                    <a href="#" class="card-img">
-                        <img class="card-img-top" src="./test/1.jpeg" alt="Card image cap">
-                        <span class="badge badge-secondary position-absolute">01:11:23</span>
-                    </a>
-                    <div class="card-body p-2">
-                        <a href="#"><h6 class="card-title mb-0 text-dark text-truncate">Card titleCard titleCard titleCard titleCard titleCard titleCard titleCard titleCard title</h6></a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                          <span class="float-left">
-                            <span class="oi oi-clock mr-1"></span>
-                            2018-08-19
-                          </span>
-                            <span class="float-right">
-                            <span class="oi oi-eye"></span>
-                            123789
-                          </span>
-                        </small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-3">
-                <div class="card">
-                    <a href="#" class="card-img">
-                        <img class="card-img-top" src="./test/1.jpeg" alt="Card image cap">
-                        <span class="badge badge-secondary position-absolute">01:11:23</span>
-                    </a>
-                    <div class="card-body p-2">
-                        <a href="#"><h6 class="card-title mb-0 text-dark text-truncate">Card titleCard titleCard titleCard titleCard titleCard titleCard titleCard titleCard title</h6></a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                          <span class="float-left">
-                            <span class="oi oi-clock mr-1"></span>
-                            2018-08-19
-                          </span>
-                            <span class="float-right">
-                            <span class="oi oi-eye"></span>
-                            123789
-                          </span>
-                        </small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-3">
-                <div class="card">
-                    <a href="#" class="card-img">
-                        <img class="card-img-top" src="./test/1.jpeg" alt="Card image cap">
-                        <span class="badge badge-secondary position-absolute">01:11:23</span>
-                    </a>
-                    <div class="card-body p-2">
-                        <a href="#"><h6 class="card-title mb-0 text-dark text-truncate">Card titleCard titleCard titleCard titleCard titleCard titleCard titleCard titleCard title</h6></a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                          <span class="float-left">
-                            <span class="oi oi-clock mr-1"></span>
-                            2018-08-19
-                          </span>
-                            <span class="float-right">
-                            <span class="oi oi-eye"></span>
-                            123789
-                          </span>
-                        </small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-3">
-                <div class="card">
-                    <a href="#" class="card-img">
-                        <img class="card-img-top" src="./test/1.jpeg" alt="Card image cap">
-                        <span class="badge badge-secondary position-absolute">01:11:23</span>
-                    </a>
-                    <div class="card-body p-2">
-                        <a href="#"><h6 class="card-title mb-0 text-dark text-truncate">Card titleCard titleCard titleCard titleCard titleCard titleCard titleCard titleCard title</h6></a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                          <span class="float-left">
-                            <span class="oi oi-clock mr-1"></span>
-                            2018-08-19
-                          </span>
-                            <span class="float-right">
-                            <span class="oi oi-eye"></span>
-                            123789
-                          </span>
-                        </small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-3">
-                <div class="card">
-                    <a href="#" class="card-img">
-                        <img class="card-img-top" src="./test/1.jpeg" alt="Card image cap">
-                        <span class="badge badge-secondary position-absolute">01:11:23</span>
-                    </a>
-                    <div class="card-body p-2">
-                        <a href="#"><h6 class="card-title mb-0 text-dark text-truncate">Card titleCard titleCard titleCard titleCard titleCard titleCard titleCard titleCard title</h6></a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                          <span class="float-left">
-                            <span class="oi oi-clock mr-1"></span>
-                            2018-08-19
-                          </span>
-                            <span class="float-right">
-                            <span class="oi oi-eye"></span>
-                            123789
-                          </span>
-                        </small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-3">
-                <div class="card">
-                    <a href="#" class="card-img">
-                        <img class="card-img-top" src="./test/1.jpeg" alt="Card image cap">
-                        <span class="badge badge-secondary position-absolute">01:11:23</span>
-                    </a>
-                    <div class="card-body p-2">
-                        <a href="#"><h6 class="card-title mb-0 text-dark text-truncate">Card titleCard titleCard titleCard titleCard titleCard titleCard titleCard titleCard title</h6></a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                          <span class="float-left">
-                            <span class="oi oi-clock mr-1"></span>
-                            2018-08-19
-                          </span>
-                            <span class="float-right">
-                            <span class="oi oi-eye"></span>
-                            123789
-                          </span>
-                        </small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-3">
-                <div class="card">
-                    <a href="#" class="card-img">
-                        <img class="card-img-top" src="./test/1.jpeg" alt="Card image cap">
-                        <span class="badge badge-secondary position-absolute">01:11:23</span>
-                    </a>
-                    <div class="card-body p-2">
-                        <a href="#"><h6 class="card-title mb-0 text-dark text-truncate">Card titleCard titleCard titleCard titleCard titleCard titleCard titleCard titleCard title</h6></a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                          <span class="float-left">
-                            <span class="oi oi-clock mr-1"></span>
-                            2018-08-19
-                          </span>
-                            <span class="float-right">
-                            <span class="oi oi-eye"></span>
-                            123789
-                          </span>
-                        </small>
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-3 mb-3">
                 <div class="card">
                     <a href="#" class="card-img">
@@ -349,7 +188,7 @@
             });
         function play_html(data)
         {
-            $('h5').text(data.title);
+            $('.title').text(data.title);
             $(".create-time").text(data.create_time);
             $(".click-view").text(data.click);
             img_src = data.thumb;
@@ -364,8 +203,8 @@
             myvideo.poster(img_src);
             myvideo.src(server_src + video_src);
             myvideo.watermark({
-                image:'https://img0.bdstatic.com/static/searchresult/img/logo-2X_b99594a.png',
-                url:'http://baidu.com'
+                image:'/images/logo.png',
+                url:'http://www.japanxav.com'
             });
             myvideo.load();
         }

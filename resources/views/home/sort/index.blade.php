@@ -47,7 +47,8 @@
         function page_html(current,last)
         {
             let _page_html = '';
-
+            current = parseInt(current);
+            last = parseInt(last);
 
             for (i = 1; i <= last; i++){
 
@@ -63,16 +64,31 @@
             if(_page_html == ''){
                 return '';
             }
-            return page_up(current) + _page_html + page_next(last);
+            return page_up(current) + _page_html + page_next(current,last);
         }
 
         function page_up(current)
         {
-            return '<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>';
+            let is_active = '';
+            let a_link = '#';
+            if(current == 1){
+                is_active = 'disabled';
+            }else{
+                a_link = '?limit=' + ( current - 1 );
+            }
+            return '<li class="page-item '+ is_active +'"><a class="page-link" href="'+ a_link +'" tabindex="-1">Previous</a></li>';
         }
-        function page_next(last)
+        function page_next(current,last)
         {
-            return '<li class="page-item"><a class="page-link" href="#">Next</a></li>';
+            let is_active = '';
+            let a_link = '#';
+
+            if(current == last){
+                is_active = 'disabled';
+            }else{
+                a_link = '?limit=' + ( current + 1 );
+            }
+            return '<li class="page-item '+ is_active +'"><a class="page-link" href="'+ a_link +'">Next</a></li>';
         }
 
         function GetUrlParam(paraName) {

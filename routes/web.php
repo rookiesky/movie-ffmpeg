@@ -86,6 +86,21 @@ Route::group(['prefix'=>'setAdmin','namespace'=>'Admin'],function(){
         //links view
         Route::get('/links','LinksController@index');
 
+
+        Route::get('/program','ProgramController@index');
+        Route::get('/program/create','ProgramController@create');
+        Route::post('/program/create','ProgramController@store');
+        Route::get('/program/{id}/edit','ProgramController@edit')->where('id','[0-9]+');
+
+        Route::get('/point','PointController@index');
+        Route::get('/point/create','PointController@create');
+        Route::post('/point/create','PointController@store');
+        Route::get('/point/{id}/edit','PointController@edit')->where('id','[0-9]+');
+
+
+
+
+
         //create and update transcodeing view
         Route::get('/transcodeing','TranscodeingController@index');
         //create and update transcodeing server
@@ -94,6 +109,7 @@ Route::group(['prefix'=>'setAdmin','namespace'=>'Admin'],function(){
         Route::get('/transcodeing/list','TranscodeingController@trancodeing');
 
         Route::get('/transcodeing/list/run','TranscodeingController@codeRun');
+
 
     });
 
@@ -125,6 +141,12 @@ Route::group(['namespace'=>'Admin','prefix'=>'api/setAdmin','middleware'=>['auth
     Route::get('/link/{id}','LinksController@find');
     //destroy link
     Route::delete('/link/{id}','LinksController@destroy');
+
+
+    Route::delete('/program/{id}','ProgramController@destroy')->where('id','[0-9]+');
+
+    Route::delete('/point/{id}','PointController@destroy')->where('id','[0-9]+');
+
 
 
 });

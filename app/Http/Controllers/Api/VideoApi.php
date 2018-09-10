@@ -38,7 +38,7 @@ class VideoApi extends Controller
         }
 
         $limit = $request->get('limit') ?? 1;
-        $starPage = 1;
+        $starPage = 36;
 
         $videos = Video::where('sort',$sort)->paginate($starPage, ['*'], 'page', $limit);
 

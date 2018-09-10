@@ -60,20 +60,36 @@
             </li>
         </ul>
     </li>
-    <li class="treeview {{ isset($menuModel['transcode']) ? $menuModel['transcode'] : '' }}">
+
+    <li class="treeview {{ isset($menuModel['finance']) ? $menuModel['finance'] : '' }}">
         <a href="#">
-            <i class="fa fa-cc"></i> <span>雲轉碼</span>
+            <i class="fa fa-credit-card"></i> <span>財務信息</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-            <li class="@if(isset($transMenu)){{ $transMenu }}@endif"><a href="/setAdmin/transcodeing">
-                    <i class="fa fa-circle-o {{ isset($transMenu) ? 'text-aqua' : '' }}"></i>伺服器設置</a></li>
-            <li class="@if(isset($transCodeMenu)){{ $transCodeMenu }}@endif"><a href="/setAdmin/transcodeing/list"><i class="fa fa-circle-o {{ isset($transCodeMenu) ? 'text-aqua' : '' }}"></i>轉碼</a></li>
+            <li class="@if(isset($program)){{ $program }}@endif"><a href="/setAdmin/program">
+                    <i class="fa fa-circle-o {{ isset($program) ? 'text-aqua' : '' }}"></i>觀看方案</a></li>
+            <li class="@if(isset($pointMenu)){{ $pointMenu }}@endif"><a href="/setAdmin/point"><i class="fa fa-circle-o {{ isset($pointMenu) ? 'text-aqua' : '' }}"></i>點數套餐</a></li>
             <li><a href="advanced.html"><i class="fa fa-circle-o "></i>同步</a></li>
         </ul>
     </li>
+
+    {{--<li class="treeview {{ isset($menuModel['transcode']) ? $menuModel['transcode'] : '' }}">--}}
+        {{--<a href="#">--}}
+            {{--<i class="fa fa-cc"></i> <span>雲轉碼</span>--}}
+            {{--<span class="pull-right-container">--}}
+              {{--<i class="fa fa-angle-left pull-right"></i>--}}
+            {{--</span>--}}
+        {{--</a>--}}
+        {{--<ul class="treeview-menu">--}}
+            {{--<li class="@if(isset($transMenu)){{ $transMenu }}@endif"><a href="/setAdmin/transcodeing">--}}
+                    {{--<i class="fa fa-circle-o {{ isset($transMenu) ? 'text-aqua' : '' }}"></i>伺服器設置</a></li>--}}
+            {{--<li class="@if(isset($transCodeMenu)){{ $transCodeMenu }}@endif"><a href="/setAdmin/transcodeing/list"><i class="fa fa-circle-o {{ isset($transCodeMenu) ? 'text-aqua' : '' }}"></i>轉碼</a></li>--}}
+            {{--<li><a href="advanced.html"><i class="fa fa-circle-o "></i>同步</a></li>--}}
+        {{--</ul>--}}
+    {{--</li>--}}
     <li class="{{ isset($menuModel['links']) ? $menuModel['links'] : '' }}">
         <a href="/setAdmin/links">
             <i class="fa fa-unlink"></i> <span>Links</span>
