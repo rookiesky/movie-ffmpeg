@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notice;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
@@ -13,10 +15,33 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //dd(\Auth::user());
-        return view('home.member.index');
+        $userMenus = 'active';
+        $user = \Auth::user();
+        $notices = Notice::orderBy('id','desc')->limit(4)->get();
+
+        return view('home.member.index',compact(['user','notices','userMenus']));
     }
 
+
+    public function userInfo()
+    {
+        $userInfoMenu = 'active';
+        $user = \Auth::user();
+
+        return view('home.member.user_info',compact(['userInfoMenu','user']));
+    }
+
+    public function collects()
+    {
+        $collectMenu = 'active';
+
+        $collects = User::where('id',\Auth::user()->id)->first()->collects()->orderBy('id','desc')->paginate(8);
+
+        $imgServer = cache('system_base')->imgServer;
+
+        return view('home.member.collect',compact(['collectMenu','collects','imgServer']));
+    }
+    
     /**
      * Show the form for creating a new resource.
      *

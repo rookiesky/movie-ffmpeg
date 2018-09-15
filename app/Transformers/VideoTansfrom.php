@@ -28,14 +28,18 @@ class VideoTansfrom
 
     public function playTransform($item)
     {
+
         return [
             'link_id' => $item->id,
             'title' => $item->name,
-            'thumb' => cache('system_base')->imgServer . $item->thumbnail,
+            'thumb' =>  cache('system_base')->imgServer . $item->thumbnail,
             'click' => $item->view,
             'link' => $item->link,
+            'point' => $item->point,
             'create_time' => $item->updated_at->format('Y-m-d'),
-            'server' => (new ServerTansform())->transformCollection($item->servers->toArray())
+            'server' => (new ServerTansform())->transformCollection($item->servers->toArray()),
+            'server_link' => $item->servers->toArray()[0]['site'],
+            'collect' => $item->collect()
         ];
     }
 }

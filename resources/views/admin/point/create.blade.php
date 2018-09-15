@@ -48,6 +48,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="inputSort" class="col-sm-2 control-label">排序</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" name="sort" class="form-control" id="inputSort" placeholder="排序" value="@if(isset($info)){{ $info->sort }} @else 0 @endif">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             {{ csrf_field() }}
                             <input type="hidden" name="id" value="@if(isset($info)){{ $info->id }} @endif">

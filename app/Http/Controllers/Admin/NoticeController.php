@@ -2,25 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Program;
+use App\Models\Notice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProgramController extends Controller
+class NoticeController extends Controller
 {
-    public $menuModel = 'finance';
 
-    public $program = 'active';
+    public $menuModel = 'system';
 
-    /**
-     * ProgramController constructor.
-     *
-     */
     public function __construct()
     {
         parent::__construct();
     }
-
 
     /**
      * Display a listing of the resource.
@@ -29,9 +23,10 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        $program = $this->program;
-        $info = Program::orderBy('sort')->get();
-        return view('admin.program.index',compact(['program','info']));
+        $noticeMenu = 'active';
+        $notices = Notice::orderBy('id','desc')->paginate(20);
+
+        return view('admin.notices.index',compact(['noticeMenu','notices']));
     }
 
     /**
@@ -41,8 +36,9 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        $program = $this->program;
-        return view('admin.program.create',compact(['program']));
+        $noticeMenu = 'active';
+
+        return view('admin.notices.create_and_edit',compact('noticeMenu'));
     }
 
     /**
@@ -55,29 +51,27 @@ class ProgramController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'summary' => 'required',
-            'total' => 'required',
-            'sales' => 'required'
+            'content' => 'required'
         ]);
 
-        $data = $request->only(['title','summary','total','sales','time','sort']);
+        $data = $request->only(['title','content']);
 
         $id = $request->get('id');
 
-        $model = new Program();
+        $model = new Notice();
 
         if($id){
             $result = $model->where('id',$id)->update($data);
         }else{
-            $result = $model->create($data);
+            $result = $model::create($data);
         }
 
         if($result){
-            return redirect('/setAdmin/program');
-        }else{
-            return redirect()->back()->withErrors('提交失敗');
+            return redirect('/setAdmin/notices');
         }
+        return redirect()->back()->withErrors('提交錯誤！');
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -90,14 +84,16 @@ class ProgramController extends Controller
         if(empty($id)){
             return redirect()->back();
         }
-        $info = Program::find($id);
 
-        if(empty($info)){
+        $notice = Notice::find($id);
+
+        if(empty($notice)){
             return redirect()->back();
         }
 
-        $program = $this->program;
-        return view('admin.program.create',compact(['program','info']));
+        $noticeMenu = 'active';
+
+        return view('admin.notices.create_and_edit',compact(['noticeMenu','notice']));
     }
 
     /**
@@ -109,19 +105,17 @@ class ProgramController extends Controller
     public function destroy($id)
     {
         if(empty($id)){
-            return $this->errorMsg('id is empty',404);
+            return $this->errorMsg('id is empty');
+        }
+        $notice = Notice::find($id);
+
+        if(empty($notice)){
+            return $this->errorMsg('notice is exist');
         }
 
-        $info = Program::find($id);
-
-        if(empty($info)){
-            return $this->errorMsg('program is exits');
-        }
-
-        if($info->delete()){
+        if($notice->delete()){
             return $this->successMsg('success');
-        }else{
-            return $this->errorMsg('delete error',501);
         }
+        return $this->errorMsg('delete error',502);
     }
 }

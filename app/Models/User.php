@@ -40,4 +40,16 @@ class User extends Authenticatable
         Mail::to($this->email)->send(new \App\Mail\ForgetPassword($data));
 
     }
+
+
+    public function program()
+    {
+        return $this->hasOne(new Program(),'id','program_id');
+    }
+
+    public function collects()
+    {
+        return $this->hasManyThrough(new Video(),new Collect(),'user_id','id','id','video_id');
+    }
+    
 }

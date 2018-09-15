@@ -69,4 +69,21 @@ class VideoApi extends Controller
         return $this->successMsg('success',$video);
     }
 
+
+    public function randomVideo()
+    {
+        $id = (new Video())->videoTotalId();
+
+        $random = array_rand($id->toArray(),8);
+
+        $randId = [];
+        foreach ($random as $val){
+            $randId[] = $id[$val];
+        }
+        $videos = Video::whereIn('id',$randId)->get();
+
+        return $this->successMsg('success',
+            (new VideoTansfrom())->transform($videos)->toArray()
+            );
+    }
 }

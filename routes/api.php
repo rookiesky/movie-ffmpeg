@@ -19,9 +19,6 @@ Route::group(['namespace'=>'Auth'],function (){
 
 });
 
-
-
-
 Route::group(['namespace'=>'Api'],function (){
     //video sort list
     Route::get('/sort/list','SortApi@list');
@@ -37,6 +34,26 @@ Route::group(['namespace'=>'Api'],function (){
     Route::get('/video/list','VideoApi@sortList');
 
     Route::get('/video/{id}','VideoApi@find');
+
+    Route::get('/program','ProgramApi@get');
+
+    Route::get('/random','VideoApi@randomVideo');
+
+});
+
+Route::group(['middleware'=>['auth'],'namespace'=>'Api'],function (){
+
+    Route::get('/collect/set/{id}','CollectApi@set');
+
+    Route::get('/reflect/set/{id}','ReflectApi@set');
+
+    Route::get('/notice/find/{id}','NoticesApi@find');
+
+    Route::put('/member/user-info/edit','MemberApi@editUsername');
+
+    Route::put('/member/password/edit','MemberApi@editPassword');
+
+    Route::delete('/member/collect/{id}','CollectApi@destroy')->where('id','[0-9]+');
 
 });
 

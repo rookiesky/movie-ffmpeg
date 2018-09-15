@@ -9,7 +9,7 @@
                         <h5 class="text-truncate title">---</h5>
                     </li>
                     <li class="list-group-item rounded-0 p-0">
-                        <video id="my-video" class="video-js vjs-big-play-centered"><track kind="captions" src="/test/captions.vtt" srclang="en" label="English" default></video>
+                        <video id="my-video" class="video-js vjs-big-play-centered"></video>
                         <!-- end video -->
                     </li>
                     <li class="list-group-item bg-secondary text-white tool-share">
@@ -33,65 +33,25 @@
                       <script async src="https://static.addtoany.com/menu/page.js"></script>
                             <!-- AddToAny END -->
                     </span>
-                        <span class="float-right mr-3">
-                      <span class="oi oi-warning"></span>
-                      檢舉
-                    </span>
-                        <span class="float-right mr-3">
-                      <span class="oi oi-heart"></span>
-                      收藏
-                    </span>
+                        <span class="float-right mr-3 reflect-user">
+                            <span class="oi oi-warning"></span>
+                            檢舉
+                        </span>
+                        <span class="float-right mr-3 collect-user">
+                            <span class="oi oi-heart"></span>
+                            <span>收藏</span>
+                        </span>
                     </li>
                 </ul>
                 <ul class="list-group mt-2">
-                    <li class="list-group-item rounded-0">
+                    <li class="list-group-item rounded-0 server-line">
                         線路選擇：
-                        <span class="badge badge-primary p-2">亞洲一線</span>
-                        <span class="badge badge-primary p-2">亞洲二線</span>
-                        <span class="badge badge-primary p-2">美洲一線</span>
-                        <span class="badge badge-primary p-2">亞洲二線</span>
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-4">
-                <div class="row mb-2">
-                    <div class="col-lg-9 pt-4 pb-3 text-secondary border border-primary">
-                        <h5>本片计次收看20点</h5>
-                    </div>
-                    <button class="col-lg-2 bg-primary pt-3 pb-3 text-white text-center border border-primary" href="#">
-                        BUY
-                    </button>
-                    <div class="col-lg-1"></div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-lg-9 pt-4 pb-3 text-secondary border border-primary">
-                        <h5>全站包日79点</h5>
-                        <p class="text-primary">全站无限收看24小时</p>
-                    </div>
-                    <button class="col-lg-2 bg-primary pt-4 pb-3 text-white text-center border border-primary" href="#">
-                        BUY
-                    </button>
-                    <div class="col-lg-1"></div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-lg-9 pt-4 pb-3 text-secondary border border-primary">
-                        <h5>全站包周199点</h5>
-                        <p class="text-primary">全站无限收看7天</p>
-                    </div>
-                    <button class="col-lg-2 bg-primary pt-4 pb-3 text-white text-center border border-primary" href="#">
-                        BUY
-                    </button>
-                    <div class="col-lg-1"></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-9 pt-4 pb-3 text-secondary border border-primary">
-                        <h5>全站包月399点</h5>
-                        <p class="text-primary">全站无限收看30天</p>
-                    </div>
-                    <button class="col-lg-2 bg-primary pt-4 pb-2 text-white text-center border border-primary" href="#">
-                        BUY
-                    </button>
-                    <div class="col-lg-1"></div>
+            <div class="col-lg-4 program-point">
+                <div class="point-empty">
+
                 </div>
             </div>
         </div>
@@ -102,30 +62,8 @@
                 </li>
             </ul>
         </nav>
-        <div class="row mt-3">
-            <div class="col-lg-3 mb-3">
-                <div class="card">
-                    <a href="#" class="card-img">
-                        <img class="card-img-top" src="./test/1.jpeg" alt="Card image cap">
-                        <span class="badge badge-secondary position-absolute">01:11:23</span>
-                    </a>
-                    <div class="card-body p-2">
-                        <a href="#"><h6 class="card-title mb-0 text-dark text-truncate">Card titleCard titleCard titleCard titleCard titleCard titleCard titleCard titleCard title</h6></a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                          <span class="float-left">
-                            <span class="oi oi-clock mr-1"></span>
-                            2018-08-19
-                          </span>
-                            <span class="float-right">
-                            <span class="oi oi-eye"></span>
-                            123789
-                          </span>
-                        </small>
-                    </div>
-                </div>
-            </div>
+        <div class="row mt-3 random-video">
+
         </div>
 
     </div>
@@ -143,63 +81,153 @@
         let img_src = "https://dlfj.guankou.cn/niaoyun/niaoyun.gushidaquan.cc/i4/gsdq/jdlingyu/17904/2016-12-04_00-38-57.jpg";
         let video_src= 'https://vjs.zencdn.net/v/oceans.mp4';
 
-
-        let options = {
-            controls:true,
-            autoplay:false,
-            width:300,
-            height:450,
-            loop:false,
-            preload:"auto",
-            bigPlayButton:true,
-            textTrackDisplay : true,
-            errorDisplay : false,
-            control: {
-                captionsButton: false,
-                chaptersButton : false,
-                liveDisplay:false,
-                playbackRateMenuButton: false,
-                subtitlesButton:false
-            },
-            controlBar: {
-                muteToggle: false,
-                captionsButton: false,
-                chaptersButton: false,
-                playbackRateMenuButton: true,
-                LiveDisplay: false,
-                subtitlesButton: false,
-                remainingTimeDisplay: true,
-                progressControl: true,
-                volumeMenuButton: {
-                    inline: false,
-                    vertical: true
-                },
-            },
-        };
-
         reload_play()
 
         $.get( "/api/video/"+video_id, function(data) {
                         console.log(data);
                         play_html(data.data);
+                        $('.server-line').append(server_line(data.data.server));
+                        if(data.data.point){
+                            $(".point-empty").append(point_html('本片计次收看'+data.data.point+'點',data.data.link_id,'video-point'));
+                        }
                     })
             .fail(function (xhr) {
-                console.log(xhr);
             });
+        $.get('/api/program',function (data) {
+            if(data.data != null){
+
+                $(".program-point").append(program_html(data.data));
+            }
+        });
+
+        $.get('/api/random',function (data) {
+            $(".random-video").html(video_body_html(data.data));
+        });
+
+        $(".reflect-user").click(function () {
+            $.get( "/api/reflect/set/"+video_id, function(data) {
+                            swal(
+                                data.message,
+                                '',
+                                'success'
+                            )
+                        })
+                            .fail(function(xhr) {
+                                sweetAlert(
+                                    xhr.responseJSON.message,
+                                    '',
+                                    'error'
+                                )
+                            });
+        });
+
+       $('.collect-user').click(function () {
+           $.get( "/api/collect/set/"+video_id, function(data) {
+               let collect = $(".collect-user span");
+
+               if(data.data == 1){
+                   collect.eq(0).addClass('text-danger');
+                   collect.eq(1).text('取消收藏');
+               }else{
+                   collect.eq(0).removeClass('text-danger')
+                   collect.eq(1).text('收藏');
+
+               }
+           })
+               .fail(function(xhr) {
+                   sweetAlert(
+                       xhr.responseJSON.message,
+                       '',
+                       'error'
+                   )
+               });
+       });
+
+
+
+        function video_js_options()
+        {
+            return {
+                controls:true,
+                autoplay:false,
+                width:300,
+                height:450,
+                loop:false,
+                preload:"auto",
+                bigPlayButton:true,
+                textTrackDisplay : true,
+                errorDisplay : false,
+                control: {
+                    captionsButton: false,
+                    chaptersButton : false,
+                    liveDisplay:false,
+                    playbackRateMenuButton: false,
+                    subtitlesButton:false
+                },
+                controlBar: {
+                    muteToggle: false,
+                    captionsButton: false,
+                    chaptersButton: false,
+                    playbackRateMenuButton: true,
+                    LiveDisplay: false,
+                    subtitlesButton: false,
+                    remainingTimeDisplay: true,
+                    progressControl: true,
+                    volumeMenuButton: {
+                        inline: false,
+                        vertical: true
+                    },
+                },
+            };
+        }
+
+        function program_html(data)
+        {
+            let _html = '';
+            $.each(data,function (index,val) {
+                let money = val.total;
+
+                if(val.money != 0){
+                    money = val.money;
+                }
+
+                _html += point_html(val.title + money,val.id,'program-money',val.summary);
+            });
+            return _html;
+        }
+
         function play_html(data)
         {
             $('.title').text(data.title);
             $(".create-time").text(data.create_time);
             $(".click-view").text(data.click);
+            if(data.collect == true){
+                let collect = $(".collect-user span");
+                collect.eq(0).addClass('text-danger');
+                collect.eq(1).text('取消收藏')
+            }
             img_src = data.thumb;
-            server_src = data.server[0].link;
+            server_src = data.server_link;
             video_src = data.link;
             reload_play();
         }
 
+        function point_html(text,id,style,summary = '')
+        {
+            return '<div class="row mb-2"><div class="col-lg-9 pt-4 pb-3 text-secondary border border-primary"><h5>'+text+'</h5>'+summary+'</div><button class="col-lg-2 bg-primary pt-3 pb-3 text-white text-center border pointer border-primary '+style+'" data-id="'+id+'">BUY</button><div class="col-lg-1"></div></div>';
+        }
+
+        function server_line(server) {
+            let _html = '';
+            $.each(server,function (index,val) {
+                _html += '<span class="badge badge-primary p-2" data-link="'+val.link_id+'">'+ val.title +'</span>';
+            });
+            return _html;
+        }
+
         function reload_play()
         {
-            let myvideo = videojs("#my-video",options);
+            let myvideo = videojs("#my-video",video_js_options());
             myvideo.poster(img_src);
             myvideo.src(server_src + video_src);
             myvideo.watermark({

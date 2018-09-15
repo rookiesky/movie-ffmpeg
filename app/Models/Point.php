@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Point extends Model
 {
-    public $fillable = ['title','point','summary','money'];
+    public $fillable = ['title','point','summary','money','sort'];
 }

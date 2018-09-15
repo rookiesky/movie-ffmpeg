@@ -26,7 +26,7 @@ class PointController extends Controller
     public function index()
     {
         $pointMenu = $this->pointMenu;
-        $point = Point::get();
+        $point = Point::orderBy('sort')->get();
         return view('admin.point.index',compact(['pointMenu','point']));
     }
 
@@ -55,7 +55,7 @@ class PointController extends Controller
             'money' => 'required'
         ]);
 
-        $data = $request->only(['title','summary','point','money']);
+        $data = $request->only(['title','summary','point','money','sort']);
 
         $id = $request->get('id');
 

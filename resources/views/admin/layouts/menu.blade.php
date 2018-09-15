@@ -33,6 +33,9 @@
             <li class="{{ isset($sysActive) ? $sysActive : '' }}">
                 <a href="/setAdmin/system"><i class="fa fa-circle-o {{ isset($sysActive) ? 'text-aqua' : '' }}"></i>系統設置</a>
             </li>
+            <li class="{{ isset($noticeMenu) ? $noticeMenu : '' }}">
+                <a href="/setAdmin/notices"><i class="fa fa-circle-o {{ isset($noticeMenu) ? 'text-aqua' : '' }}"></i>通知</a>
+            </li>
         </ul>
     </li>
     <li class="treeview {{ isset($menuModel['video']) ? $menuModel['video'] : '' }}">
@@ -76,20 +79,6 @@
         </ul>
     </li>
 
-    {{--<li class="treeview {{ isset($menuModel['transcode']) ? $menuModel['transcode'] : '' }}">--}}
-        {{--<a href="#">--}}
-            {{--<i class="fa fa-cc"></i> <span>雲轉碼</span>--}}
-            {{--<span class="pull-right-container">--}}
-              {{--<i class="fa fa-angle-left pull-right"></i>--}}
-            {{--</span>--}}
-        {{--</a>--}}
-        {{--<ul class="treeview-menu">--}}
-            {{--<li class="@if(isset($transMenu)){{ $transMenu }}@endif"><a href="/setAdmin/transcodeing">--}}
-                    {{--<i class="fa fa-circle-o {{ isset($transMenu) ? 'text-aqua' : '' }}"></i>伺服器設置</a></li>--}}
-            {{--<li class="@if(isset($transCodeMenu)){{ $transCodeMenu }}@endif"><a href="/setAdmin/transcodeing/list"><i class="fa fa-circle-o {{ isset($transCodeMenu) ? 'text-aqua' : '' }}"></i>轉碼</a></li>--}}
-            {{--<li><a href="advanced.html"><i class="fa fa-circle-o "></i>同步</a></li>--}}
-        {{--</ul>--}}
-    {{--</li>--}}
     <li class="{{ isset($menuModel['links']) ? $menuModel['links'] : '' }}">
         <a href="/setAdmin/links">
             <i class="fa fa-unlink"></i> <span>Links</span>

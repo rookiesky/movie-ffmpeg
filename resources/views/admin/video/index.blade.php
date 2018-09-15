@@ -5,8 +5,19 @@
             <div class="box">
                 <div class="box-header with-border">
                     <h3 class="box-title">Bordered Table</h3>
+                    <a type="button" class="btn btn-info" href="/setAdmin/video/create">添加視頻</a>
                 </div>
-                <a type="button" class="btn btn-block btn-info" href="/setAdmin/video/create">添加視頻</a>
+                <div class="row">
+                    <form action="/setAdmin/video/search">
+                    <div class="col-md-8 col-md-offset-1">
+                        <input type="text" class="form-control" name="keyword" placeholder="請輸入關鍵字">
+                    </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-info">搜索</button>
+                        </div>
+                    </form>
+                </div>
+
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered">

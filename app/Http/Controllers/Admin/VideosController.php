@@ -37,6 +37,22 @@ class VideosController extends Controller
         return view('admin.video.index',compact(['videos','listVideoMenu','noVideoMenu']));
     }
 
+
+    public function search(Request $request)
+    {
+        $this->validate($request,[
+            'keyword' => 'required'
+        ]);
+
+        $keyword = $request->get('keyword');
+
+        $videos = Video::where('name','like',"%{$keyword}%")->paginate(15);
+
+        $listVideoMenu = 'active';
+
+        return view('admin.video.index',compact(['videos','listVideoMenu','noVideoMenu']));
+    }
+
     /**
      * video create view
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class SystemServer extends Model
 {
-    public $fillable = ['name','site','is_active','host','port','username','password'];
+    public $fillable = ['name','site','is_active'];
 }

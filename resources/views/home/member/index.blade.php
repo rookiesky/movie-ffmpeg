@@ -4,28 +4,7 @@
         <div class="row">
             <div class="col-lg-2">
                 <!-- menu -->
-                <div class="card rounded-0" style="width: 18rem;">
-                    <div class="card-header rounded-0 font-weight-bold" style="letter-spacing: 6px;">
-                        欄目
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <a href="">
-                            <li class="list-group-item rounded-0 active">會員專區<span class="oi oi-chevron-right float-right"></span></li>
-                        </a>
-                        <a href="">
-                            <li class="list-group-item rounded-0">修改個人資料<span class="oi oi-chevron-right float-right"></span></li>
-                        </a>
-                        <a href="">
-                            <li class="list-group-item rounded-0">儲值點數／點數兌換<span class="oi oi-chevron-right float-right"></span></li>
-                        </a>
-                        <a href="">
-                            <li class="list-group-item rounded-0">消費紀錄<span class="oi oi-chevron-right float-right"></span></li>
-                        </a>
-                        <a href="">
-                            <li class="list-group-item rounded-0">收藏影片<span class="oi oi-chevron-right float-right"></span></li>
-                        </a>
-                    </ul>
-                </div>
+                @include('home.layouts.member_menu')
                 <!-- end menu -->
             </div>
             <div class="col-lg-1"></div>
@@ -42,27 +21,41 @@
                             <tbody>
                             <tr>
                                 <th scope="row" >暱稱：</th>
-                                <td>小白的</td>
+                                <td>{{ $user->name }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">郵箱：</th>
-                                <td>xxxxxx@cc.com</td>
+                                <td>{{ $user->email }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">現有點數：</th>
-                                <td style="letter-spacing: 3px;">0點</td>
+                                <td style="letter-spacing: 3px;">{{ $user->point }}點</td>
                             </tr>
                             <tr>
                                 <th scope="row">收看方案：</th>
-                                <td>無</td>
+                                <td>
+                                    @if($user->is_vip == 1)
+                                        {{ $user->program->title }}
+                                    @else
+                                        無
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">方案到期日：</th>
-                                <td>--</td>
+                                <td>
+                                    @if($user->is_vip == 1)
+                                        {{ $user->vip_end_time }}
+                                    @else
+                                        --
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">最後登錄：</th>
-                                <td>--</td>
+                                <td>
+                                    {{ $user->updated_at->format('Y-m-d') }}
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -73,9 +66,9 @@
                                 訊息
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item" data-toggle="modal" data-target="#exampleModal">Cras justo odio <span class="float-right">2018-09-16</span></li>
-                                <li class="list-group-item" data-toggle="modal" data-target="#exampleModal">Dapibus ac facilisis in <span class="float-right">2018-09-16</span></li>
-                                <li class="list-group-item" data-toggle="modal" data-target="#exampleModal">Vestibulum at eros <span class="float-right">2018-09-16</span></li>
+                                @foreach($notices as $val)
+                                <li class="list-group-item notice-msg" data-id="{{ $val->id }}">{{ $val->title }}<span class="float-right">{{ $val->created_at->format('Y-m-d') }}</span></li>
+                                    @endforeach
                             </ul>
                         </div>
                     </div>
@@ -86,7 +79,7 @@
     </div>
 
     <!-- modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -95,15 +88,45 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    ...
+                <div class="modal-body notice-content">
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- end modal -->
+@stop
+
+@section('script')
+<script>
+    $(".notice-msg").click(function () {
+       let id = $(this).data();
+
+       if(id.id == ''){
+           sweetAlert(
+               '請選擇信息',
+               '',
+               'error'
+           )
+           return false;
+       }
+
+        $.get( "/api/notice/find/"+id.id, function(data) {
+                        $("#exampleModalLabel").text(data.data.title);
+                        $(".notice-content").html(data.data.content);
+                        $("#noticeModal").modal('show');
+                    })
+                        .fail(function(xhr) {
+                            sweetAlert(
+                                xhr.responseJSON.message,
+                                '',
+                                'error'
+                            )
+                        });
+
+    });
+</script>
 @stop

@@ -17,6 +17,7 @@
                             <th>時長</th>
                             <th>原價</th>
                             <th>賣價</th>
+                            <th>排序</th>
                             <th>操作</th>
                         </tr>
                         @foreach($info as $val)
@@ -27,6 +28,7 @@
                             <td>{{ $val->time }}日</td>
                             <td>{{ $val->total }}點</td>
                             <td>{{ $val->sales }}點</td>
+                            <td>{{ $val->sort }}</td>
                             <td>
                                 <a href="/setAdmin/program/{{ $val->id }}/edit" class="btn btn-info">編輯</a>
                                 <button type="button" data-id="{{ $val->id }}" class="btn btn-danger">刪除</button>

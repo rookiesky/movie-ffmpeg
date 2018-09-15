@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Program extends Model
 {
-    public $fillable = ['title','summary','total','sales','time'];
+    public $fillable = ['title','summary','total','sales','time','sort'];
 }

@@ -7,7 +7,7 @@ class ServerTansform extends BaseTransformer
     {
         return [
             'title' => $item['name'],
-            'link' => $item['site']
+            'link_id' => $item['id']
         ];
     }
 }

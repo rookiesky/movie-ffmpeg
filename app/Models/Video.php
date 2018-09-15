@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class Video extends Model
 {
@@ -22,6 +24,30 @@ class Video extends Model
     public function servers()
     {
         return $this->hasManyThrough(SystemServer::class,VideoToServer::class,'video_id','id','id','server_id');
+    }
+
+
+    public function collect()
+    {
+        if(!\Auth::check()){
+            return false;
+        }
+        $user_id = \Auth::user()->id;
+
+        $result = Collect::where('user_id',$user_id)
+            ->where('video_id',$this->id)
+            ->first();
+
+        return (bool) $result;
+    }
+
+    public function videoTotalId()
+    {
+        return Cache::remember('videototalid',120,function (){
+            return collect(
+                DB::table($this->getTable())->get(['id'])
+            )->pluck('id');
+        });
     }
 
     /**

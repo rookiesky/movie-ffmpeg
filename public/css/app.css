@@ -58,3 +58,28 @@ body.reg {
   cursor: pointer;
 }
 
+.server-line {
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.user-info tbody tr th {
+  width: 15%;
+  text-align: right;
+}
+
+.message ul li,
+.user-info tbody tr td span {
+  cursor: pointer;
+}
+
+.collect .card .badge-danger {
+  width: 25px;
+  position: absolute;
+  right: -9px;
+  top: -8px;
+}
+

@@ -30,6 +30,8 @@ Route::get('/v/{id}','VideoController@index')->where('id','[0-9]+');
 Route::group(['middleware'=>'auth'],function (){
 
     Route::get('/member','MemberController@index');
+    Route::get('/member/user-info','MemberController@userInfo');
+    Route::get('/member/collects','MemberController@collects');
 
 });
 
@@ -70,6 +72,8 @@ Route::group(['prefix'=>'setAdmin','namespace'=>'Admin'],function(){
         //video list view
         Route::get('/video/{status}','VideosController@index')->where('status','[0-9]+');
 
+        Route::get('/video/search','VideosController@search');
+
 
         //server list view
         Route::get('/system/server','ServerController@index');
@@ -98,17 +102,10 @@ Route::group(['prefix'=>'setAdmin','namespace'=>'Admin'],function(){
         Route::get('/point/{id}/edit','PointController@edit')->where('id','[0-9]+');
 
 
-
-
-
-        //create and update transcodeing view
-        Route::get('/transcodeing','TranscodeingController@index');
-        //create and update transcodeing server
-        Route::post('/transcodeing','TranscodeingController@store');
-
-        Route::get('/transcodeing/list','TranscodeingController@trancodeing');
-
-        Route::get('/transcodeing/list/run','TranscodeingController@codeRun');
+        Route::get('/notices','NoticeController@index');
+        Route::get('/notices/create','NoticeController@create');
+        Route::post('/notices/create','NoticeController@store');
+        Route::get('/notices/{id}/edit','NoticeController@edit');
 
 
     });
@@ -146,6 +143,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'api/setAdmin','middleware'=>['auth
     Route::delete('/program/{id}','ProgramController@destroy')->where('id','[0-9]+');
 
     Route::delete('/point/{id}','PointController@destroy')->where('id','[0-9]+');
+
+    Route::delete('/notice/{id}','NoticeController@destroy')->where('id','[0-9]+');
 
 
 
