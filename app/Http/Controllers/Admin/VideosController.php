@@ -83,6 +83,7 @@ class VideosController extends Controller
             return redirect()->back();
         }
 
+
         $video = Video::find($id);
 
         if(empty($video)){
@@ -99,8 +100,9 @@ class VideosController extends Controller
 
         $serverId = collect($video->servers)->pluck('id')->toArray();
         $tagId = collect($video->tags)->pluck('id')->toArray();
+        $jumpUrl = $_SERVER['HTTP_REFERER'];
 
-        return view('admin.video.edit',compact(['video','model','sort','server','tags','serverId','tagId']));
+        return view('admin.video.edit',compact(['video','model','sort','server','tags','serverId','tagId','jumpUrl']));
     }
 
     /**
@@ -148,7 +150,7 @@ class VideosController extends Controller
             return redirect()->back()->withErrors('視頻不存在');
         }
 
-        $data = $request->only(['name','pixel','sort','region','is_vip','point','is_banner','link','id']);
+        $data = $request->only(['name','pixel','sort','region','is_vip','point','is_banner','link','id','preview']);
         $data['time_limit'] = $request->get('time_limit') ?? '';
 
         $video = Video::find($data['id']);
@@ -196,7 +198,13 @@ class VideosController extends Controller
             if(isset($data['thumbnail']) && $data['thumbnail'] != ''){
                 Storage::disk('ftp')->delete($video->thumbnail);
             }
-            return redirect('/setAdmin/video/0');
+            $jump = $request->get('jumpurl');
+            $jumpurl = '/setAdmin/video/0';
+
+            if($jump){
+                $jumpurl = $jump;
+            }
+            return redirect($jumpurl);
         }
         return redirect()->back()->withErrors('更新是失敗');
     }
@@ -210,11 +218,12 @@ class VideosController extends Controller
     {
         $this->validate($request,[
             'name' => 'required',
-            'link' => 'required'
+            'link' => 'required',
+            'preview' => 'required'
         ]);
 
 
-        $data = $request->only(['name','pixel','sort','region','is_vip','point','is_banner','link']);
+        $data = $request->only(['name','pixel','sort','region','is_vip','point','is_banner','link','preview']);
         $data['time_limit'] = $request->get('time_limit') ?? '';
         $data['view'] = rand(1000,10000);
 

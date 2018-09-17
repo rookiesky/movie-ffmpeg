@@ -114,11 +114,18 @@
 
                         </div>
                         <div class="form-group">
+                            <label for="inputPreview" class="col-sm-2 control-label">预览地址</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="preview" class="form-control" value="{{ $video->preview }}" id="inputPreview">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="inputLink" class="col-sm-2 control-label">視頻地址</label>
                             <div class="col-sm-10">
                                 <input type="text" name="link" class="form-control" value="{{ $video->link }}" id="inputLink">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="id" value="{{ $video->id }}">
+                                <input type="hidden" name="jumpurl" value="@if(isset($jumpUrl)){{ $jumpUrl }}@endif">
                             </div>
                         </div>
                     </div>

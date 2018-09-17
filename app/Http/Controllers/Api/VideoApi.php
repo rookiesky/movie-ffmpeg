@@ -33,14 +33,23 @@ class VideoApi extends Controller
     public function sortList(Request $request)
     {
         $sort = $request->get('sort') ?? '';
-        if($sort == ''){
-            return $this->errorMsg('sort is empty',404);
-        }
+
+        $keyword = $request->get('keyword');
 
         $limit = $request->get('limit') ?? 1;
         $starPage = 36;
 
-        $videos = Video::where('sort',$sort)->paginate($starPage, ['*'], 'page', $limit);
+        $query = new Video();
+
+        if($sort){
+            $query = $query->where('sort',$sort);
+        }
+
+        if($keyword){
+            $query = $query->where('name','like',"%{$keyword}%");
+        }
+
+        $videos = $query->where('status',1)->paginate($starPage, ['*'], 'page', $limit);
 
         $data['videos'] = (new VideoTansfrom())->transform($videos->items());
         $data['current_page'] = $limit;
@@ -58,10 +67,10 @@ class VideoApi extends Controller
             return $this->errorMsg('id is empty!',404);
         }
 
-        $video = Video::find($id);
+        $video = Video::where('status',1)->find($id);
 
         if(empty($video)){
-            return $this->errorMsg('dose video not exist ',404);
+            return $this->errorMsg('視頻不存在',404);
         }
 
         $video = (new VideoTansfrom())->playTransform($video);

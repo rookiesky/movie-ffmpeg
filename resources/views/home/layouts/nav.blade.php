@@ -11,8 +11,8 @@
                 <a class="nav-link" href="/">首頁</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" method="get" action="/search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="keyword" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">檢索</button>
         </form>
         <ul class="navbar-nav ml-auto">

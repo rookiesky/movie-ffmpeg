@@ -39,7 +39,8 @@ class VideoTansfrom
             'create_time' => $item->updated_at->format('Y-m-d'),
             'server' => (new ServerTansform())->transformCollection($item->servers->toArray()),
             'server_link' => $item->servers->toArray()[0]['site'],
-            'collect' => $item->collect()
+            'collect' => $item->collect(),
+            'is_vip' => (bool) $item->is_vip
         ];
     }
 }

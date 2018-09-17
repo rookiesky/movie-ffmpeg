@@ -24,6 +24,8 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/sort/{id}','SortController@index')->where('id','[0-9]+');
 
+Route::get('/search','SortController@search');
+
 Route::get('/v/{id}','VideoController@index')->where('id','[0-9]+');
 
 

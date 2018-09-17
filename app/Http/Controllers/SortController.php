@@ -13,7 +13,17 @@ class SortController extends Controller
         if(empty($sort)){
             return redirect('/');
         }
-
         return view('home.sort.index');
     }
+
+
+    public function search(Request $request)
+    {
+        $this->validate($request,[
+            'keyword' => 'required'
+        ]);
+        $keyword = $request->get('keyword');
+        return view('home.sort.index',compact('keyword'));
+    }
+
 }

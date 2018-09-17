@@ -23,10 +23,13 @@
 <script>
     window.onload = function () {
 
-        let sort_id = sort_url_iD();
+        let sort_id = 0;
         let limit = GetUrlParam('limit');
+        let keyword = "@if(isset($keyword)){{ $keyword }}@endif";
+        if(keyword == ''){
+            sort_id =  sort_url_iD();
+        }
         let api_url = api_url_html();
-
 
         $.get( api_url, function(data) {
             $(".video_list").html(video_list_body(data.data.videos))
@@ -41,7 +44,11 @@
 
         function api_url_html()
         {
-            return '/api/video/list?sort=' + sort_id + '&limit=' + limit;
+            url = '/api/video/list?sort=' + sort_id + '&limit=' + limit;
+            if(keyword != ''){
+                url = url + '&keyword=' + keyword;
+            }
+            return url;
         }
 
         function page_html(current,last)

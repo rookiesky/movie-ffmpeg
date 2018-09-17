@@ -10,4 +10,12 @@ class ServerTansform extends BaseTransformer
             'link_id' => $item['id']
         ];
     }
+
+    public function linkTransform($item)
+    {
+        return [
+            'link' => $item['site'],
+            'title' => $item['name']
+        ];
+    }
 }

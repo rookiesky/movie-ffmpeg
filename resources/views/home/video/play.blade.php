@@ -80,18 +80,22 @@
         let server_src = '';
         let img_src = "https://dlfj.guankou.cn/niaoyun/niaoyun.gushidaquan.cc/i4/gsdq/jdlingyu/17904/2016-12-04_00-38-57.jpg";
         let video_src= 'https://vjs.zencdn.net/v/oceans.mp4';
+        let setvideo = true;
 
-        reload_play()
+        reload_play();
 
         $.get( "/api/video/"+video_id, function(data) {
-                        console.log(data);
+
                         play_html(data.data);
                         $('.server-line').append(server_line(data.data.server));
+                        setvideo = data.data.is_vip;
                         if(data.data.point){
                             $(".point-empty").append(point_html('本片计次收看'+data.data.point+'點',data.data.link_id,'video-point'));
                         }
                     })
             .fail(function (xhr) {
+                errorMsg(xhr.responseJSON.message);
+                window.location.href = '/';
             });
         $.get('/api/program',function (data) {
             if(data.data != null){
@@ -143,6 +147,24 @@
                });
        });
 
+
+
+       $(document).on('click','.play-server-line',function () {
+           let id = $(this).data('link');
+            if(id == ''){
+                errorMsg('請選擇伺服器');
+                return false;
+            }
+            $.get( "/api/server/"+id, function(e) {
+                           console.log(e);
+                server_src = e.data.link;
+                reload_play();
+                successMsg('更換伺服器成功');
+                        })
+                            .fail(function(xhr) {
+                                errorMsg(xhr.responseJSON.message);
+                            });
+       });
 
 
         function video_js_options()
@@ -220,7 +242,7 @@
         function server_line(server) {
             let _html = '';
             $.each(server,function (index,val) {
-                _html += '<span class="badge badge-primary p-2" data-link="'+val.link_id+'">'+ val.title +'</span>';
+                _html += '<span class="badge badge-primary p-2 mr-1 play-server-line" data-link="'+val.link_id+'">'+ val.title +'</span>';
             });
             return _html;
         }
@@ -234,8 +256,12 @@
                 image:'/images/logo.png',
                 url:'http://www.japanxav.com'
             });
+
             myvideo.load();
+
         }
+
+
     }
 </script>
 @stop

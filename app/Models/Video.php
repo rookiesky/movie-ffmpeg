@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Video extends Model
 {
-    public $fillable = ['name','pixel','sort','region','is_vip','point','time_limit','is_banner','thumbnail','link','view'];
+    public $fillable = ['name','pixel','sort','region','is_vip','point','time_limit','is_banner','thumbnail','link','view','preview'];
 
 
     public function videoSort()
@@ -45,7 +45,7 @@ class Video extends Model
     {
         return Cache::remember('videototalid',120,function (){
             return collect(
-                DB::table($this->getTable())->get(['id'])
+                DB::table($this->getTable())->where('status',1)->get(['id'])
             )->pluck('id');
         });
     }

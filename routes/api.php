@@ -39,6 +39,7 @@ Route::group(['namespace'=>'Api'],function (){
 
     Route::get('/random','VideoApi@randomVideo');
 
+    Route::get('/server/{id}','ServerApi@find')->where('id','[0-9]+');
 });
 
 Route::group(['middleware'=>['auth'],'namespace'=>'Api'],function (){
