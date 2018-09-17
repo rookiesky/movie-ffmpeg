@@ -7,6 +7,6 @@
 
 @include('home.layouts.js')
 @yield('script')
-{!! cache('system_base')->count !!}
+@if(isset(cache('system_base')->count)){!! cache('system_base')->count !!}@endif
 </body>
 </html>
